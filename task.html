@@ -5,6 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .parent {
+            display: flex;
+            background-color: rgba(21, 51, 133, 0.938);
+            padding: 19px 15px;
+            border-radius: 6px;
+        }
+
+        input {
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            margin: 9px;
+            width: 27vw;
+        }
+
+        #add {
+            background-color: brown;
+            border: 2px solid white;
+            width: 8vw;
+            height: 8vh;
+            border-radius: 6px;
+            color: white;
+            margin-top: 6px;
+        }
+
+        .cardbox {
+            width: 20vw;
+            height: 60vh;
+            border: 2px solid black;
+            border-radius: 7px;
+            margin-top: 10px;
+            margin-left: 10px;
+            box-shadow: 2px 3px 5px 8px grey;
+
+        }
+
+        .card-image {
+            height: 25vh;
+            border: 2px solid rgb(68, 67, 67);
+            border-radius: 7px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .delete {
+            background-color: brown;
+            border: 2px solid white;
+            width: 18vw;
+            height: 8vh;
+            border-radius: 6px;
+            color: white;
+            margin-top: 6px;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        p {
+            margin-left: 10px;
+
+        }
+
+        h1 {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,7 +78,41 @@
     <p>Today's i'm learning about git command and how to use it
         and also how to use github to host my project
     </p>
-    <img src="https://i.pinimg.com/736x/25/8c/5b/258c5b7a0fabc5dc0a6fc0767e91670c.jpg" alt="" width="200px " height="200px">
+    <img src="https://i.pinimg.com/736x/25/8c/5b/258c5b7a0fabc5dc0a6fc0767e91670c.jpg" alt="" width="200px "
+        height="200px">
+
+    <div class="parent">
+        <input type="text" id="url" placeholder="Enter Image URL">
+        <input type="text" id="product" placeholder="Enter Prroduct Name">
+        <input type="text" id="price" placeholder="Enter Price">
+
+        <button id="add">Add Product</button>
+    </div>
+    <div id="card">
+
+    </div>
+    <script>
+        document.getElementById('add').addEventListener("click", function () {
+            let url = document.getElementById('url').value.trim();
+            let product = document.getElementById('product').value.trim();
+            let price = document.getElementById('price').value.trim();
+            let card = document.getElementById("card")
+
+            let box = document.createElement('div');
+            card.appendChild(box)
+            box.innerHTML = `<div class="cardbox">
+                                    <img src = "${url}" class="card-image">
+                                   <h1>${product}</h1>
+                                   <p>${price}</p>
+                                   <button class = 'delete'>Delete Product</button></div> `
+
+            box.querySelector('.delete').addEventListener("click", () => {
+                if (confirm("DO YOU WANT TO DELETE")) {
+                    card.removeChild(box)
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
