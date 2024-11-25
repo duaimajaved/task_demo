@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mini-Cards</title>
     <style>
         .parent {
             display: flex;
@@ -91,7 +91,7 @@
     <div id="card">
 
     </div>
-   >
+    >
     <script>
         document.getElementById('add').addEventListener("click", function () {
             let url = document.getElementById('url').value.trim();
@@ -104,7 +104,7 @@
             box.innerHTML = `<div class="cardbox">
                                     <img src = "${url}" class="card-image">
                                    <h1>${product}</h1>
-                                   <p>${price}</p>
+                                   <p> RS :${price}</p>
                                    <button class = 'delete'>Delete Product</button></div> `
 
             box.querySelector('.delete').addEventListener("click", () => {
